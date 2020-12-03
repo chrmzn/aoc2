@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"strings"
 )
 
 func main() {
@@ -24,7 +25,10 @@ func main() {
 	readFile.Close()
 
 	for _, line := range fileTextLines {
-		fmt.Println(line)
+		// fmt.Println(line)
+		stringSplit := strings.Split(line, ": ")
+		regex, password := stringSplit[0], stringSplit[1]
+		fmt.Printf("Regex: '%s'; Password: '%s'\n", regex, password)
 	}
 
 }
