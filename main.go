@@ -32,13 +32,15 @@ func main() {
 
 	readFile.Close()
 
+	var validPasswords int
+
 	for _, line := range fileTextLines {
 		// fmt.Println(line)
 		matcher, password := splitter(line, ": ")
 		fmt.Printf("Match: '%s'; Password: '%s'\n", matcher, password)
 
-		valueCounts, valueMatch := splitter(matcher, " ")
-		fmt.Printf("Counts: '%s'; Matcher: '%s'\n", valueCounts, valueMatch)
+		valueCounts, valueMatchStr := splitter(matcher, " ")
+		fmt.Printf("Counts: '%s'; Matcher: '%s'\n", valueCounts, valueMatchStr)
 
 		minCountStr, maxCountStr := splitter(valueCounts, "-")
 		fmt.Printf("MinCount: '%s'; MaxCount: '%s'\n", minCountStr, maxCountStr)
@@ -53,11 +55,24 @@ func main() {
 		}
 		fmt.Printf("MinCount: %d; MaxCount: %d\n", minCount, maxCount)
 
+		var counter int
+		valueMatch := rune(valueMatchStr[0])
+
 		for _, char := range password {
-			fmt.Printf("%s", char)
+			if char == valueMatch {
+				counter++
+			}
+		}
+
+		fmt.Printf("counter: %d\n", counter)
+
+		if minCount <= counter && counter <= maxCount {
+			fmt.Println("Password is valid!")
+			validPasswords++
 		}
 
 		fmt.Println("")
 	}
 
+	fmt.Printf("Total Valid Passwords: %d", validPasswords)
 }
