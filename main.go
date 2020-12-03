@@ -7,6 +7,10 @@ import (
 	"strings"
 )
 
+func splitter(str string, sep string) (left, right string) {
+
+}
+
 func main() {
 	readFile, err := os.Open("input.txt")
 	if err != nil {
@@ -27,8 +31,14 @@ func main() {
 	for _, line := range fileTextLines {
 		// fmt.Println(line)
 		stringSplit := strings.Split(line, ": ")
-		regex, password := stringSplit[0], stringSplit[1]
-		fmt.Printf("Regex: '%s'; Password: '%s'\n", regex, password)
+		match, password := stringSplit[0], stringSplit[1]
+		fmt.Printf("Match: '%s'; Password: '%s'\n", match, password)
+
+		stringSplit = strings.Split(match, " ")
+		valueCount, valueMatch := stringSplit[0], stringSplit[1]
+		fmt.Printf("Counts: '%s'; Matcher: '%s'\n", valueCount, valueMatch)
+
+		fmt.Println("")
 	}
 
 }
