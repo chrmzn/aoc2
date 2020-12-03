@@ -53,6 +53,10 @@ func main() {
 		}
 		fmt.Printf("MinCount: %d; MaxCount: %d\n", minCount, maxCount)
 
+		for _, char := range password {
+			fmt.Printf("%s", char)
+		}
+
 		fmt.Println("")
 	}
 
