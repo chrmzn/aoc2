@@ -61,8 +61,14 @@ func main() {
 		for i, char := range password {
 			if i+1 == minCount && char == valueMatch {
 				charMatch = true
-			} else if i+1 == maxCount && char == valueMatch && !charMatch {
-				validPasswords++
+			} else if i+1 == maxCount {
+				if char == valueMatch && !charMatch {
+					fmt.Println("Password is valid!")
+					validPasswords++
+				} else if char != valueMatch && !charMatch {
+					validPasswords++
+					fmt.Println("Password is valid!")
+				}
 			}
 		}
 
