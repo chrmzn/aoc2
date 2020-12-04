@@ -16,7 +16,7 @@ func splitter(str string, sep string) (left, right string) {
 }
 
 func main() {
-	readFile, err := os.Open("input.txt")
+	readFile, err := os.Open("../input.txt")
 	if err != nil {
 		panic(err)
 	}
