@@ -68,7 +68,7 @@ func main() {
 				if char == valueMatch && !charMatch {
 					fmt.Println("Password is valid!")
 					validPasswords++
-				} else if char != valueMatch && !charMatch {
+				} else if char != valueMatch && charMatch {
 					validPasswords++
 					fmt.Println("Password is valid!")
 				}
