@@ -75,13 +75,6 @@ func main() {
 			}
 		}
 
-		// fmt.Printf("counter: %d\n", counter)
-
-		// if minCount <= counter && counter <= maxCount {
-		// 	fmt.Println("Password is valid!")
-		// 	validPasswords++
-		// }
-
 		fmt.Println("")
 	}
 
