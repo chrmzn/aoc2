@@ -59,9 +59,12 @@ func main() {
 		valueMatch := rune(valueMatchStr[0])
 
 		for i, char := range password {
+			// fmt.Printf("Char: %d\n", i+1)
 			if i+1 == minCount && char == valueMatch {
+				fmt.Printf("First - Expecting: %c, Got: %c\n", valueMatch, char)
 				charMatch = true
 			} else if i+1 == maxCount {
+				fmt.Printf("Second - Expecting: %c, Got: %c\n", valueMatch, char)
 				if char == valueMatch && !charMatch {
 					fmt.Println("Password is valid!")
 					validPasswords++
